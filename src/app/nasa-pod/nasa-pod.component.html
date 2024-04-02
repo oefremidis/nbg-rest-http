@@ -1,0 +1,19 @@
+<h3>Nasa - POD</h3>
+
+<button (click)="makeRequest()" class="btn btn-primary">Get POD</button>
+
+<pre>{{ data | json }} </pre>
+
+
+<div *ngIf="loading">Loading...</div>
+
+<div *ngIf="data" class="alert alert-success">
+    <p>{{ data.date }}</p>
+    <img [src]="data.url" alt="POD" width="200" height="300">
+</div>
+
+@if(errorMessage){
+    <div class="alert alert-danger">
+        {{ errorMessage | json }}
+    </div>
+}

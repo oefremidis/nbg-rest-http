@@ -1,20 +1,23 @@
 <h4>Users</h4>
 
-<p>Total Pages:{{ users.total_pages}}</p>
+<!-- <p>Total Pages:{{ users.total_pages }}</p>
 <p>Name: {{users.data[0].first_name}} {{ users.data[0].last_name}} </p>
 
 <img [src]="users.data[0].avatar" alt="">
 
-<hr>
+<hr> -->
 
 @for(user of users.data; track $index){ <!--// track $index-->
-    <p>Name: {{user.first_name}} {{ user.last_name}} </p>
-    <img [src]="user.avatar" alt="{{ user.last_name }}">
+    <!-- <p>Name: {{user.first_name}} {{ user.last_name}} </p>
+    <img [src]="user.avatar" alt="{{ user.last_name }}"> -->
 }
 
 
-<hr>
-<pre>{{ users | json}}</pre>
+<!-- <hr>
+<pre>{{ users | json}}</pre> -->
 
 
 <!-- <pre>{{ users | async | json }}</pre> -->
+
+<button (click)="postData()">Post Data</button>
+<pre>{{ postedData | async | json}}</pre>

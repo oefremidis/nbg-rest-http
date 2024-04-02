@@ -39,4 +39,21 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.users.usnsubscribe();
   }
 
+
+  // post using async
+  postedData: any;
+
+  postData(){
+
+    const data = {
+      name: "morpheus",
+      job: "leader"
+    };
+
+    this.postedData = this.service.post(data)
+
+    // with subscribe
+    // this.service.post().subscribe{next:........}
+  }
+
 }
