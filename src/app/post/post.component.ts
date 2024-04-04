@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PostService } from '../services/post.service';
+import { BasePost } from '../models/base-post';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -10,7 +12,7 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  posts: any;
+  posts: Post[] = [];
   errormessage!: string;
 
   service = inject(PostService);
