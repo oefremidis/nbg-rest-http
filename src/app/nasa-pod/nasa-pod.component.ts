@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NasaService } from '../services/nasa.service';
 import { JsonPipe, NgIf } from '@angular/common';
+import { Nasa } from '../models/nasa';
 
 @Component({
   selector: 'app-nasa-pod',
@@ -11,14 +12,18 @@ import { JsonPipe, NgIf } from '@angular/common';
 })
 export class NasaPodComponent {
 
-  data: any;
+  // data: any;
+  // data: Nasa; // error 
+  // data: Nasa = {} as Nasa; // error because...that way data is not empty -- *ngIf works
+  data!: Nasa;
+
   errorMessage: any;
   loading: boolean = false;
 
   service = inject(NasaService);
 
 
-  makeRequest() {
+  makeRequest(): void {
     this.loading = true;
     
     this.service.get().subscribe({
